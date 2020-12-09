@@ -13,7 +13,7 @@
 </head>
 <body class="preload">
 <header>
-    <div class="alp-header alp-header_light">
+    <div class="alp-header">
         <div class="alp-container">
             <div class="alp-header__left">
                 <a href="/" class="alp-logo"></a>
@@ -21,6 +21,8 @@
             </div>
             <div class="alp-header__right">
                 <nav class="alp-header__menu">
+                    <a href="404.html">404</a>
+                    <a href="403.html">403</a>
                     <a href="index.html">Экспресс-гарантии</a>
                     <a href="agent.html">Агентам</a>
                     <a href="calculator.html">Калькулятор</a>
@@ -28,7 +30,7 @@
                 </nav>
                 <a href="#" class="alp-btn_auth">Войти</a>
             </div>
-            <div class="alp-burger alp-burger_black">
+            <div class="alp-burger">
                 <svg viewBox="0 0 40 24">
                     <rect y="0.95652" width="40" height="3.47826" rx="1.73913" fill="#EEEEEE"/>
                     <rect y="10.4348" width="13.913" height="3.47826" rx="1.73913" fill="#EEEEEE"/>
@@ -42,6 +44,21 @@
 <main>
     <div class="alp-hero">
         <div class="alp-banner__slider | js-banner-slick">
+            <div class="alp-banner ">
+                <div class="alp-container">
+                    <div class="alp-banner__content">
+                        <form onsubmit="openRequestModal(this); return false;">
+                            <h1>Банковские гарантии</h1>
+                            <p>от 500 000 ₽ до 30 млн ₽</p>
+                            <div class="alp-btn__container">
+                                <button class="alp-btn_banner">
+                                    Получить гарантию
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
             <div class="alp-banner alp-ban2 js_is_light">
                 <div class="alp-container">
                     <div class="alp-banner__content">
@@ -57,15 +74,45 @@
                     </div>
                 </div>
             </div>
-            <div class="alp-banner ">
+            <div class="alp-banner">
                 <div class="alp-container">
                     <div class="alp-banner__content">
                         <form onsubmit="openRequestModal(this); return false;">
-                            <h1>Банковские гарантии</h1>
-                            <p>от 500 000 ₽ до 30 млн ₽</p>
+                            <h1>3 SLIDE</h1>
+                            <p>Бонус крупным брокерам (гарантии более 50 млн рублей)</p>
                             <div class="alp-btn__container">
-                                <button class="alp-btn_banner">
-                                    Получить гарантию
+                                <button class="alp-btn">
+                                    Стать агентом
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="alp-banner alp-ban2 js_is_light">
+                <div class="alp-container">
+                    <div class="alp-banner__content">
+                        <form onsubmit="openRequestModal(this); return false;">
+                            <h1>4 SLIDE</h1>
+                            <p>Бонус крупным брокерам (гарантии более 50 млн рублей)</p>
+                            <div class="alp-btn__container">
+                                <button class="alp-btn">
+                                    Стать агентом
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="alp-banner">
+                <div class="alp-container">
+                    <div class="alp-banner__content">
+                        <form onsubmit="openRequestModal(this); return false;">
+                            <h1>5 SLIDE</h1>
+                            <p>Бонус крупным брокерам (гарантии более 50 млн рублей)</p>
+                            <div class="alp-btn__container">
+                                <button class="alp-btn">
+                                    Стать агентом
                                 </button>
                             </div>
                         </form>
@@ -92,20 +139,100 @@
                             </div>
                         </div>
                     </div>
+                    <div class="alp-banner-nav__item">
+                        <div class="alp-banner-nav__item__container">
+                            <div class="alp-banner-nav__item__container-content">
+                                <p><span>ПППППППППППППППППППП</span></p>
+                                <p>Это название второго слайда</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="alp-banner-nav__item">
+                        <div class="alp-banner-nav__item__container">
+                            <div class="alp-banner-nav__item__container-content">
+                                <p><span>ПППППППППППППППППППП</span></p>
+                                <p>Это название второго слайда</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="alp-banner-nav__item">
+                        <div class="alp-banner-nav__item__container">
+                            <div class="alp-banner-nav__item__container-content">
+                                <p><span>ПППППППППППППППППППП</span></p>
+                                <p>Это название второго слайда</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <div class="alp-products alp-block-s">
+        <div class="alp-container alp-slider">
+            <h3>Доступные продукты</h3>
+            <div class="alp-products__container | js-products-slick">
+                <div class="alp-products__container-item">
+                    <div class="alp-products__container-item__container">
+                        <form onsubmit="openRequestModal(this); return false;">
+                            <div class="alp-products__container-item__container-content">
+                                <h4>Тендерная гарантия (44/223-ФЗ)</h4>
+                                <p>до 12 мес. (но не более 365 (366) дней).</p>
+                            </div>
+                            <div class="alp-btn__container">
+                                <button class="alp-btn alp-btn_l">
+                                    Оформить гарантию
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="alp-products__container-item">
+                    <div class="alp-products__container-item__container">
+                        <form onsubmit="openRequestModal(this); return false;">
+                            <div class="alp-products__container-item__container-content">
+                                <h4>Тендерная гарантия (44/223-ФЗ)</h4>
+                                <p>24 мес. (но не более 730 (731) дней) для БГ до 10 млн. руб. 18 месяцев для БГ
+                                    свыше
+                                    10
+                                    млн руб.</p>
+                            </div>
+                            <div class="alp-btn__container">
+                                <button class="alp-btn alp-btn_l">
+                                    Оформить гарантию
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="alp-products__container-item">
+                    <div class="alp-products__container-item__container">
+                        <form onsubmit="openRequestModal(this); return false;">
+                            <div class="alp-products__container-item__container-content">
+                                <h4>Гарантия на возврат авансового платежа (только 44-ФЗ)</h4>
+                                <p>Сумма БГ до 30 млн руб. 24 мес. по БГ до 10 млн руб. 18 мес по БГ от 10 млн
+                                    руб.</p>
+                            </div>
+                            <div class="alp-btn__container">
+                                <button class="alp-btn alp-btn_l">
+                                    Оформить гарантию
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="js-arrows-slick__container"></div>
+        </div>
+    </div>
 
-
-    <div class="alp-guarantees alp-block-xs">
-        <div class="alp-container">
+    <div class="alp-guarantees alp-block-m alp-clear-top-p">
+        <div class="alp-container alp-slider">
             <h3>Гарантии от банка</h3>
             <div class="alp-guarantees__container | js-guarantees-slick">
                 <div class="alp-guarantees__container-item">
                     <div class="alp-guarantees__container-item__container">
                         <div class="alp-guarantees__container-item__container-content"
-                             style="background-image: url('css/images/icon1.svg')">
+                             style="background-image: url('alpha-bank/css/images/icon1.svg')">
                             <p>Ответ от банка <br><b>за 1 час</b></p>
                         </div>
                     </div>
@@ -113,16 +240,17 @@
                 <div class="alp-guarantees__container-item">
                     <div class="alp-guarantees__container-item__container">
                         <div class="alp-guarantees__container-item__container-content"
-                             style="background-image: url('css/images/icon2.svg')">
-                            <p>Срок выдачи БГ <b>от 1 дня</b></p>
+                             style="background-image: url('alpha-bank/css/images/icon2.svg')">
+                            <p>Срок выдачи БГ <br><b>от 1 дня</b></p>
                         </div>
                     </div>
                 </div>
+
                 <div class="alp-guarantees__container-item">
                     <div class="alp-guarantees__container-item__container">
                         <div class="alp-guarantees__container-item__container-content"
-                             style="background-image: url('css/images/icon4.svg')">
-                            <p>Обмен документами <br><b>с помощью КЭП</b></p>
+                             style="background-image: url('alpha-bank/css/images/icon4.svg')">
+                            <p><b>Поможем</b> <br>в оформлении заявки</p>
                         </div>
                     </div>
                 </div>
@@ -130,8 +258,49 @@
         </div>
     </div>
 
-    <div class="alp-orders alp-block-m alp-clear-bottom-p">
+    <div class="alp-faq alp-block-m">
         <div class="alp-container">
+            <h3>Как оформить банковскую гарантию?</h3>
+            <div class="alp-faq__container">
+                <div class="alp-faq__container-item">
+                    <div class="alp-faq__container-item__container">
+                        Что такое «экспресс-гарантия»?
+                    </div>
+                    <div class="alp-faq__container-item__text">
+                        Что здесь платно?Что здесь платно?
+                        Что здесь платно?Что здесь платно?Что здесь платно?
+                        Что здесь платно?Что здесь платно?Что здесь платно?
+                        Что здесь платно?Что здесь платно?Что здесь платно?
+                    </div>
+                </div>
+                <div class="alp-faq__container-item">
+                    <div class="alp-faq__container-item__container">
+                        Банковские гарантии банка “Открытие” публикуются в реестре?
+                    </div>
+                    <div class="alp-faq__container-item__text">
+                        Что здесь платно?Что здесь платно?
+                        Что здесь платно?Что здесь платно?Что здесь платно?
+                        Что здесь платно?Что здесь платно?Что здесь платно?
+                        Что здесь платно?Что здесь платно?Что здесь платно?
+                    </div>
+                </div>
+                <div class="alp-faq__container-item">
+                    <div class="alp-faq__container-item__container">
+                        Что здесь платно?
+                    </div>
+                    <div class="alp-faq__container-item__text">
+                        Что здесь платно?Что здесь платно?
+                        Что здесь платно?Что здесь платно?Что здесь платно?
+                        Что здесь платно?Что здесь платно?Что здесь платно?
+                        Что здесь платно?Что здесь платно?Что здесь платно?
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="alp-orders alp-block-m alp-clear-bottom-p">
+        <div class="alp-container alp-slider">
             <h3>Как подать заявку самостоятельно?</h3>
             <div class="alp-orders__container | js-orders-slick">
                 <div class="alp-orders__container-item">
@@ -182,50 +351,20 @@
         </div>
     </div>
 
-    <div class="alp-faq alp-block-m">
+    <div class="alp-help alp-block-m">
         <div class="alp-container">
-            <h3>Что нужно узнать, прежде чем стать агентом?</h3>
-            <div class="alp-faq__container alp-faq__agent">
-                <div class="alp-faq__container-item">
-                    <div class="alp-faq__container-item__container">
-                        Что такое «экспресс-гарантия»?
-                    </div>
-                    <div class="alp-faq__container-item__text">
-                        Что здесь платно?Что здесь платно?
-                        Что здесь платно?Что здесь платно?Что здесь платно?
-                        Что здесь платно?Что здесь платно?Что здесь платно?
-                        Что здесь платно?Что здесь платно?Что здесь платно?
-                    </div>
-                </div>
-                <div class="alp-faq__container-item">
-                    <div class="alp-faq__container-item__container">
-                        Банковские гарантии банка “Открытие” публикуются в реестре?
-                    </div>
-                    <div class="alp-faq__container-item__text">
-                        Что здесь платно?Что здесь платно?
-                        Что здесь платно?Что здесь платно?Что здесь платно?
-                        Что здесь платно?Что здесь платно?Что здесь платно?
-                        Что здесь платно?Что здесь платно?Что здесь платно?
-                    </div>
-                </div>
-                <div class="alp-faq__container-item">
-                    <div class="alp-faq__container-item__container">
-                        Что здесь платно?
-                    </div>
-                    <div class="alp-faq__container-item__text">
-                        Что здесь платно?Что здесь платно?
-                        Что здесь платно?Что здесь платно?Что здесь платно?
-                        Что здесь платно?Что здесь платно?Что здесь платно?
-                        Что здесь платно?Что здесь платно?Что здесь платно?
-                    </div>
-                </div>
+            <h3>Нужна помощь? Менеджер поможет!</h3>
+            <div class="alp-help__container">
+                <div class="alp-help__container-item">Корректно заполнить профиль</div>
+                <div class="alp-help__container-item">Подготовить пакет документов</div>
+                <div class="alp-help__container-item">Отправить заявку в банк</div>
+                <div class="alp-help__container-item">Ответить на любые вопросы о работе сервиса</div>
             </div>
             <div class="alp-btn__container">
-                <button onclick="openHelpModal()" class="alp-btn">Задать вопрос</button>
+                <button onclick="openHelpModal()" class="alp-btn alp-btn_l">Получить консультацию</button>
             </div>
         </div>
     </div>
-
 </main>
 
 <footer>
@@ -261,14 +400,14 @@
                 <div class="alp-modal__form">
                     <div class="alp-input">
                         <label>
-                            <span>Имя <sup>*</sup></span>
                             <input required name="name" type="text">
+                            <span>Имя*</span>
                         </label>
                     </div>
                     <div class="alp-input">
                         <label>
-                            <span>Электронная почта*</span>
                             <input required name="email" type="email">
+                            <span>Электронная почта*</span>
                         </label>
                     </div>
                     <div class="alp-radio__container">
@@ -306,7 +445,6 @@
             <form onsubmit="sendRequest(this); return false;">
                 <h5 class="alp-modal-title">Нужна помощь?</h5>
                 <div class="alp-modal__form">
-                    <input id="agent-question" type="hidden">
                     <div class="alp-input">
                         <label>
                             <input required name="name" type="text">
@@ -317,6 +455,18 @@
                         <label>
                             <input required name="email" type="email">
                             <span>Электронная почта*</span>
+                        </label>
+                    </div>
+                    <div class="alp-input">
+                        <label>
+                            <input type="tel" name="bg_request_order_form-phone" required="" id="id_bg_request_order_form-phone" class="">
+                            <script>
+                                // Ebb.Entries['ebb/widgets/phonefield'].main({
+                                //     elementId: 'id_bg_request_order_form-phone',
+                                // });
+                            </script>
+                            <span>Номер телефона*</span>
+
                         </label>
                     </div>
                 </div>
@@ -340,10 +490,11 @@
         <div class="alp-modal alp-modal-good">
             <div class="alp-modal-good__response">
                 <h4>Заявка отправлена</h4>
-                <div style="background: url('css/images/banner1-back-element.svg') no-repeat center bottom; background-size: contain; height: 200px;"></div>
+                <div style="background: url('alpha-bank/css/images/banner1-back-element.svg') no-repeat center bottom; background-size: contain; height: 200px;"></div>
             </div>
         </div>
     </div>
+
 </div>
 
 
