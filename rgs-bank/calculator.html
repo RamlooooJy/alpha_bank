@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная страница</title>
+    <meta name="viewport" content="width=device-width">
+    <link href="./favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+    <link rel="stylesheet" href="fonts/fonts.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/libraries.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="css/calc.css">
+    <link rel="stylesheet" href="css/daterangepicker.css">
+    <script src="js/libraries.js"></script>
+    <script src="js/slick.min.js"></script>
+</head>
+<body class="">
+<script>
+    var apiUrl = 'https://box.srvtests.com/tariff_calculator/api/calculate/';
+</script>
+<header>
+    <div class="rgs-header rgs-container">
+        <div class="rgs-header__left">
+            <a href="/" class="rgs-logo"></a>
+            <div class="rgs-header__phone"><a href="tel:88005057582">8 (800) 505-75-82</a></div>
+        </div>
+        <div class="rgs-header__right">
+            <nav class="rgs-header__menu rgs-header-menu">
+                <a href="./index.html">Экспресс-гарантии</a>
+                <a href="./agents.html">Агенту</a>
+                <a href="./calculator.html" class="active">Калькулятор</a>
+                <a href="./custom.html">Техподдержка</a>
+                <a href="#" class="rgs-link_login"><span>Войти</span></a>
+            </nav>
+        </div>
+        <div class="rgs-header__burger-btn">
+            <span></span>
+        </div>
+    </div>
+</header>
+<main>
+    <div>
+        <!-- SLIDER -->
+    </div>
+
+    <div class="rgs-container">
+        <div class="rgs-breadcrumbs">
+            <div><a href="index.html">Главная</a></div>
+            <span>Рассчитайте стоимость банковской гарантии</span>
+        </div>
+        <div class="rgs-calc">
+            <div class="rgs-calc__title">
+                Рассчитайте стоимость банковской гарантии
+            </div>
+            <div class="rgc-calc__container">
+                <div class="rgc-calc__container-item">
+                    <div class="rgc-calc__container-item__label">
+                        <span class="rgc-calc__container-item__label-title">Федеральный закон</span>
+                        <div class="rgs-select-container">
+                            <select name="fz" id="rgs-fz" onchange="getResult()">
+                                <option value="2">223-ФЗ</option>
+                                <option value="3" selected="">44-ФЗ</option>
+                                <option value="4">185 ФЗ/615 ПП</option>
+                                <option value="5">отсутствует</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="rgc-calc__container-item__label">
+                        <span class="rgc-calc__container-item__label-title">Гарантии</span>
+                        <div class="rgs-select-container">
+                            <select name="product" id="rgs-product" onchange="getResult()">
+                                <option value="1" selected="">Банковская гарантия на исполнение контракта</option>
+                                <option value="3">Банковская гарантия на участие</option>
+                                <option value="6">Банковская гарантия обеспечения гарантийных обязательств</option>
+                                <option value="8">Расчетно-кассовое обслуживание</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="rgc-calc__container-item__label rgc-calc__container-item__label">
+                        <span class="rgc-calc__container-item__label-title">Необходимая сумма гарантии</span>
+                        <input type="text" name="sum" id="rgs-sum" oninput="getResult()"/>
+                    </div>
+                </div>
+
+                <div class="rgc-calc__container-item">
+                    <div class="rgc-calc__container-item__label">
+                        <span class="rgc-calc__container-item__label-title">Срок в днях</span>
+                        <input name="time" id="rgsTime" type="text"/>
+                    </div>
+                    <div class="rgc-calc__container-item__label rgc-calc__container-item__label_flex">
+                        <div class="rgc-calc__container-item__label-select">
+                            <span class="rgc-calc__container-item__label-title">Дата начала</span>
+                            <div class="rgs-select-container" id="main__time-from">
+                                <input name="date1" id="main__time-from-input" readonly/>
+                            </div>
+                        </div>
+                        <div class="rgc-calc__container-item__label-select">
+                            <span class="rgc-calc__container-item__label-title">Дата окнончания</span>
+                            <div class="rgs-select-container" id="main__time-to">
+                                <input name="date2" id="main__time-to-input" readonly/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rgc-calc__container-item__label">
+                        <label class="rgs-checkbox">
+                            <input type="checkbox" checked="" id="rgs-advance" onchange="getResult()">
+                            <span></span>
+                            <span>
+                            Наличие аванса
+                        </span>
+                        </label>
+                    </div>
+                </div>
+                <div class="rgc-calc__container-item">
+                    <div class="rgc-calc__container-item__sum">
+                        <span class="rgc-calc__container-item__label-title">Стоимость банковской гарантии</span>
+                        <p id="rgs-finalSum">0 ₽</p>
+                    </div>
+                    <div class="rgc-calc__container-item__button">
+                        <button id="rgs-btn-request" class="rgs-button" onclick="sendRequest()">Подать заявку</button>
+                        <p>Не предоставляется, попробуйте изменить условия</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="rgs-container">
+        <div class="rgs-container-text">
+            <p>Калькулятор расчета БГ поможет сделать предварительную оценку стоимости по минимальному тарифу
+                банка.*</p>
+            <p>Онлайн расчет производится по стандартным тарификаторам. Если вы хотите узнать точную цену, Вы можете
+                отправить заявку (кликнув на кнопку «оформить гарантию»). После с Вами свяжется менеджер, уточнив все
+                детали, произведет детальный расчет стоимости банковской гарантии.</p>
+            <p>* Фактическая стоимость БГ может отличаться от указанной в калькуляторе. Также примите во внимание, что
+                Банк может Вам отказать в выдаче банковской гарантии в том случае, если посчитает, что риски для него
+                слишком велики, т.к. в случае неисполнения контракта именно банк будет выплачивать государственному
+                заказчику неустойку.</p>
+        </div>
+    </div>
+    <div class="rgs-container">
+        <div class="rgs-confirms-cookie">На нашем сайте мы используем cookie для сбора информации технического характера
+            и обрабатываем данные об IP-адресе, Вашем местоположении без указания фамилии и имени, продолжая
+            использовать сайт, Вы даете на это свое согласие.
+        </div>
+    </div>
+    <div style="display: none;">
+
+        <div class="box-modal" id="request-form">
+            <div class="box-modal_close arcticmodal-close"></div>
+            <div>
+                <div class="rgs-h2 rgs-title_form">Заказать банковскую гаранию</div>
+                <form>
+                    <input type="hidden" name='fz'>
+                    <input type="hidden" name='guarantee'>
+                    <input type="hidden" name=sum>
+                    <input type="hidden" name="days">
+                    <input type="hidden" name="date-from">
+                    <input type="hidden" name="date-to">
+                    <input type="hidden" name="cost">
+                    <input type="hidden" name="preparation">
+
+                    <div class="rgs-form__row rgs-form__row_flex">
+                        <label class="rgs-input">
+                            Номер конкурса<sup></sup>
+                            <input type="text" placeholder="№" name="number_of_competition">
+                        </label>
+                        <label class="rgs-input">
+                            Электронная почта<sup>*</sup>
+                            <input type="email" name="email" placeholder="Например: mail@yourdomain.ru" required>
+                        </label>
+                    </div>
+                    <div class="rgs-form__row rgs-form__row_flex">
+                        <label class="rgs-input">
+                            Ваше имя<sup>*</sup>
+                            <input name="fio" type="text" placeholder="Константинопольский Константин Константинович" required>
+                        </label>
+                        <label class="rgs-input">
+                            Номер телефона<sup>*</sup>
+                            <input name="phone" type="number" placeholder="79999999999" required>
+                        </label>
+                    </div>
+                    <div class="rgs-form__row">
+                        <label class="rgs-input">
+                            Дополнительно
+                            <input name="more" type="text" placeholder="Дополнительно">
+                        </label>
+                    </div>
+<!--                    <div class="rgs-form__row">-->
+<!--                        <div class="rgs-radio-list_flex">-->
+<!--                            <label class="rgs-radio">-->
+<!--                                <input type="radio" name="USER_TYPE" value="агент" checked>-->
+<!--                                <span></span>-->
+<!--                                Я агент-->
+<!--                            </label>-->
+<!--                            <label class="rgs-radio">-->
+<!--                                <input type="radio" name="USER_TYPE" value="клиент">-->
+<!--                                <span></span>-->
+<!--                                Я клиент-->
+<!--                            </label>-->
+<!--                        </div>-->
+<!--                    </div>-->
+                    <div class="rgs-form__row">
+                        <label class="rgs-checkbox">
+                            <input type="checkbox" checked required>
+                            <span></span>
+                            <span>
+                            Я даю согласие на <a href="#">обработку ПД</a>
+                        </span>
+                        </label>
+                    </div>
+                    <div class="rgs-form__row">
+                        <button type="submit" class="rgs-button" id="btn-send-form">Подать заявку</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+<footer>
+    <div class="rgs-container rgs-container_flex">
+        <div class="rgs-footer__container">
+            <a href="#">
+                <div class="rgs-footer__logo"></div>
+            </a>
+            <div class="rgs-footer__certificate">
+                © 2012-2020, Публичное акционерное общество <br>«Росгосстрах Банк» Лицензия ЦБ РФ 3073.
+            </div>
+        </div>
+        <div class="rgs-footer__container">
+            <div class="rgs-footer__text">
+                Раскрытие информации в соответствии с Указанием ЦБ РФ от 28.12.2015 N 3921-У | Перечень инсайдерской
+                информации | Схема взаимосвязей ПАО «РГС Банк» и лиц, под контролем либо значительным влиянием
+                которых находится банк | Информация о максимальных процентных ставках по вкладам физических лиц
+                (№3194-У)
+            </div>
+            <div class="rgs-footer__text">
+                Используя данный сайт, я выражаю свое согласие ПАО «РГС Банк» на обработку моих персональных данных
+                с использованием интернет-сервисов. С Политикой в отношении обработки персональных данных
+                ознакомлен.
+            </div>
+
+        </div>
+        <div class="rgs-footer__container rgs-footer__navigation">
+            <a href="#">Техническая поддержка</a><br/>
+            <a href="#">Политика обработки ПД</a><br/>
+            <a href="#">Пользовательское соглашение</a><br/>
+            <a href="https://srvhub.ru">Разработка Service Hub</a>
+        </div>
+    </div>
+</footer>
+</body>
+<script src="js/moment.min.js"></script>
+<script src="js/daterangepicker.js"></script>
+<script src="js/main.js"></script>
+<script src="js/calc.js"></script>
+</html>
